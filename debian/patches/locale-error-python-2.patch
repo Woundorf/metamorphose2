@@ -1,0 +1,20 @@
+From: Rob Savoury <savourytech@use.startmail.com>
+Date: Sat, 22 Sep 2018 18:01:23 -0700
+Subject: Fix locales error with Python 2 on Ubuntu
+
+---
+ src/MainWindow/__init__.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/MainWindow/__init__.py b/src/MainWindow/__init__.py
+index 529ba52..2962970 100644
+--- a/src/MainWindow/__init__.py
++++ b/src/MainWindow/__init__.py
+@@ -497,6 +497,7 @@ class MainWindow(wx.Frame):
+         app.language = language
+         app.debug_print("Set language: " + app.language)
+ 
++        locale.setlocale(locale.LC_ALL,'')
+         self.encoding = unicode(locale.getlocale()[1])
+         app.debug_print("Set encoding: " + self.encoding)
+ 

@@ -497,9 +497,6 @@ class MainWindow(wx.Frame):
         app.language = language
         app.debug_print("Set language: " + app.language)
 
-        # hacked by Rob Savoury to fix #16 locales error with Python 2
-        locale.setlocale(locale.LC_ALL,'')
-
         self.encoding = unicode(locale.getlocale()[1])
         app.debug_print("Set encoding: " + self.encoding)
 
