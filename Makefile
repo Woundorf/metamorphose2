@@ -60,14 +60,14 @@ install: install-doc
 	cd messages && $(MAKE) install
 
 	# adjust app.py translations' search-path
-	sed -i "s|/usr|$(DESTDIR)$(PREFIX)|g" $(DESTDIR)$(PREFIX)/share/$(PACKAGE)/app.py;
+	#sed -i "s|/usr|$(DESTDIR)$(PREFIX)|g" $(DESTDIR)$(PREFIX)/share/$(PACKAGE)/app.py;
 
 	# install the executables
 	install -d $(DESTDIR)$(PREFIX)/bin/;
 	install -m 755 $(PACKAGE) $(DESTDIR)$(PREFIX)/bin/;
 
 	# adjust executable' path
-	sed -i "s|/usr|$(DESTDIR)$(PREFIX)|g" $(DESTDIR)$(PREFIX)/bin/$(PACKAGE);
+	#sed -i "s|/usr|$(DESTDIR)$(PREFIX)|g" $(DESTDIR)$(PREFIX)/bin/$(PACKAGE);
 
 	# copy icon and launcher if folders exist
 	#must create this folders or rpm won't build
@@ -79,7 +79,7 @@ install: install-doc
 	install -d $(DESTDIR)$(PREFIX)/share/applications
 	install -m 644 $(PACKAGE).desktop $(DESTDIR)$(PREFIX)/share/applications/
 	# adjust launcher's path
-	sed -i "s|/usr|$(DESTDIR)$(PREFIX)|g" $(DESTDIR)$(PREFIX)/share/applications/$(PACKAGE).desktop
+	#sed -i "s|/usr|$(DESTDIR)$(PREFIX)|g" $(DESTDIR)$(PREFIX)/share/applications/$(PACKAGE).desktop
 	if [ -d $(DESTDIR)$(PREFIX)/share/app-install/desktop ]; then\
 		ln -s $(DESTDIR)$(PREFIX)/share/applications/$(PACKAGE).desktop $(DESTDIR)$(PREFIX)/share/app-install/desktop/$(PACKAGE).desktop;\
 	fi;

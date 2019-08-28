@@ -497,6 +497,7 @@ class MainWindow(wx.Frame):
         app.language = language
         app.debug_print("Set language: " + app.language)
 
+        locale.setlocale(locale.LC_ALL,'')
         self.encoding = unicode(locale.getlocale()[1])
         app.debug_print("Set encoding: " + self.encoding)
 

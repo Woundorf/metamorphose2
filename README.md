@@ -1,4 +1,4 @@
-> Note: due the creator of Métamorphose (Ianaré Sévi) no longer having time to maintain it, this forked version has been created (big thanks to Ianaré for writing the software and maintaining it when he had time!). For Ubuntu users please see the new Launchpad PPA for a release that works on Xenial (and as of release 0.9.0~beta should work on newer series too):
+> Note: due the creator of Métamorphose [Ianaré Sévi](https://github.com/ianare) no longer having time to maintain it, this forked version has been created (big thanks to Ianaré for writing the software and maintaining it when he had time!). For Ubuntu users please see the new Launchpad PPA for a release that works on Xenial (and as of release 0.9.0~beta should work on newer series too):
 >
 >https://launchpad.net/~savoury1/+archive/ubuntu/metamorphose2
 
