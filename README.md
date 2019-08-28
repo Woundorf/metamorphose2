@@ -68,12 +68,12 @@ Launch the application::
 
 ### Installing
 
-As root::
+As root:
 ```
 make all
 ```
 
-Under Linux & freeBSD the makefile should take care of everything for you, it is architecture and distro independant.
+Under Linux & FreeBSD the makefile should take care of everything for you, it is architecture and distro independant.
 
 Métamorphose will be installed in `/usr/share/metamorphose2`, you can run it with:
 ```
@@ -109,19 +109,16 @@ make remove remusr=1
 
 Program locks up when 'walking' a large number of files/folders
 
-> Not really locked up, but the time it takes to process entries can be long if you
-> are loading many items. During this process the application doesn't refresh, giving
-> the appearance of being locked up but is actually working on stuff.
->
-> The time in this state is dependent on your computer, whether the directory is
-> on a local drive or a network share, and of course the number of items.
+> Not really locked up, but the time it takes to process entries can be long if you are loading many items. During this process the application doesn't refresh, giving the appearance of being locked up but is actually working on stuff.
+> 
+> The time in this state is dependent on your computer, whether the directory is on a local drive or a network share, and of course the number of items.
 >
 > This will be addressed in a future release.
 
 
 Unreadable picker items under Linux (possibly other GTK)
 
-> There seems to be a bug in wxGTK, the list can become slow and unreadable when dealing with large number of items (over 10 000).
+> There seems to be a bug in wxGTK, the list can become slow and unreadable when dealing with large number of items (over 10,000).
 >
 > A work around may be possible.
 
