@@ -140,14 +140,14 @@ class Panel(wx.Panel):
                                     label=_(u"Alphabetical:"), name=u'alpha', parent=self, style=0)
         self.alpha.SetValue(False)
         self.alpha.Enable(True)
-        self.alpha.SetToolTipString(_(u"Must start at positive value: (1=a, 28=ab, etc..)"))
+        self.alpha.SetToolTip(_(u"Must start at positive value: (1=a, 28=ab, etc..)"))
         self.alpha.Bind(wx.EVT_RADIOBUTTON, self._check_styles)
 
         self.roman = wx.RadioButton(id=wxID_PANELROMAN,
                                     label=_(u"Roman Numeral:"), name=u'roman', parent=self, style=0)
         self.roman.SetValue(False)
         self.roman.Enable(True)
-        self.roman.SetToolTipString(_(u"Count must be between 1 and 4999"))
+        self.roman.SetToolTip(_(u"Count must be between 1 and 4999"))
         self.roman.Bind(wx.EVT_RADIOBUTTON, self._check_styles)
 
         self.digit_pad = wx.CheckBox(id=wxID_PANELDIGIT_PAD,
@@ -211,14 +211,14 @@ class Panel(wx.Panel):
                                 min=1, name=u'step', parent=self, size=wx.Size(70, -1),
                                 style=wx.SP_ARROW_KEYS, value='1')
         self.step.SetValue(1)
-        self.step.SetToolTipString(_(u"Step size"))
+        self.step.SetToolTip(_(u"Step size"))
         self.step.Bind(wx.EVT_TEXT_ENTER, main.show_preview)
         self.step.Bind(wx.EVT_SPINCTRL, main.show_preview)
 
         self.countByDir = wx.CheckBox(id=wxID_PANELCOUNTBYDIR,
                                       label=_(u"By directory"), name=u'countByDir', parent=self,
                                       style=0)
-        self.countByDir.SetToolTipString(_(u"Only change count when directory changes"))
+        self.countByDir.SetToolTip(_(u"Only change count when directory changes"))
         self.countByDir.SetValue(False)
         self.countByDir.Bind(wx.EVT_CHECKBOX, main.show_preview)
 
@@ -229,7 +229,7 @@ class Panel(wx.Panel):
                                   parent=self, style=wx.RB_GROUP)
         self.asc.SetFont(wx.Font(17, wx.SWISS, wx.NORMAL, wx.BOLD, False))
         self.asc.SetValue(True)
-        self.asc.SetToolTipString(_(u"Increase counting number"))
+        self.asc.SetToolTip(_(u"Increase counting number"))
         self.asc.Bind(wx.EVT_RADIOBUTTON, main.show_preview)
 
         self.desc = wx.RadioButton(id=wxID_PANELDESC, label=_(u"-"),
@@ -237,7 +237,7 @@ class Panel(wx.Panel):
         self.desc.SetFont(wx.Font(15, wx.SWISS, wx.NORMAL, wx.BOLD, False,
                           u'Impact'))
         self.desc.SetValue(False)
-        self.desc.SetToolTipString(_(u"Decrease counting number"))
+        self.desc.SetToolTip(_(u"Decrease counting number"))
         self.desc.Bind(wx.EVT_RADIOBUTTON, main.show_preview)
 
         self.staticText6 = wx.StaticText(id=wxID_PANELSTATICTEXT6,
@@ -247,7 +247,7 @@ class Panel(wx.Panel):
                                  min=0, name=u'start', parent=self, size=wx.Size(70, -1),
                                  style=wx.SP_ARROW_KEYS)
         self.start.SetValue(1)
-        self.start.SetToolTipString(_(u"Starting value"))
+        self.start.SetToolTip(_(u"Starting value"))
         self.start.Bind(wx.EVT_TEXT_ENTER, main.show_preview, id=wxID_PANELSTART)
         self.start.Bind(wx.EVT_SPINCTRL, main.show_preview, id=wxID_PANELSTART)
 
@@ -255,7 +255,7 @@ class Panel(wx.Panel):
                                         label=_(u"Number of items"), name=u'startByItems', parent=self,
                                         style=0)
         self.startByItems.SetValue(False)
-        self.startByItems.SetToolTipString(_(u"Use the number of items as the start value"))
+        self.startByItems.SetToolTip(_(u"Use the number of items as the start value"))
         self.startByItems.Bind(wx.EVT_CHECKBOX, self._on_startbyitems_checkbox,
                                id=wxID_PANELSTARTBYITEMS)
 
@@ -267,7 +267,7 @@ class Panel(wx.Panel):
                                  min=1, name=u'reset', parent=self, size=wx.Size(70, -1),
                                  style=wx.SP_ARROW_KEYS, value='0')
         self.reset.SetValue(1)
-        self.reset.SetToolTipString(_(u"1 = don't reset"))
+        self.reset.SetToolTip(_(u"1 = don't reset"))
         self.reset.SetRange(1, 100000000)
         self.reset.Bind(wx.EVT_TEXT_ENTER, main.show_preview, id=wxID_PANELRESET)
         self.reset.Bind(wx.EVT_SPINCTRL, main.show_preview, id=wxID_PANELRESET)
@@ -275,14 +275,14 @@ class Panel(wx.Panel):
         self.resetDir = wx.CheckBox(id=wxID_PANELRESETDIR,
                                     label=_(u"Directory"), name=u'resetDir', parent=self,
                                     style=0)
-        self.resetDir.SetToolTipString(_(u"Reset count when directory changes"))
+        self.resetDir.SetToolTip(_(u"Reset count when directory changes"))
         self.resetDir.SetValue(False)
         self.resetDir.Bind(wx.EVT_CHECKBOX, main.show_preview)
 
         self.incrementOnDiff = wx.CheckBox(id=wxID_PANELRINCREMENTONDIFF,
                                            label=_(u"Name change"), name=u'incrementOnDiff', parent=self,
                                            style=0)
-        self.incrementOnDiff.SetToolTipString(_(u"MUST be in LAST operation in stack !!"))
+        self.incrementOnDiff.SetToolTip(_(u"MUST be in LAST operation in stack !!"))
         self.incrementOnDiff.SetValue(False)
         self.incrementOnDiff.Bind(wx.EVT_CHECKBOX, main.show_preview)
 
@@ -294,7 +294,7 @@ class Panel(wx.Panel):
                                   min=1, name=u'reset', parent=self, size=wx.Size(70, -1),
                                   style=wx.SP_ARROW_KEYS, value='1')
         self.repeat.SetValue(1)
-        self.repeat.SetToolTipString(_(u"1 = don't repeat"))
+        self.repeat.SetToolTip(_(u"1 = don't repeat"))
         self.repeat.SetRange(1, 100000000)
         self.repeat.Bind(wx.EVT_TEXT_ENTER, main.show_preview,
                          id=wxID_PANELREPEAT)

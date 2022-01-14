@@ -138,7 +138,7 @@ class IntroTextPanel(wx.Panel):
             # create temporary instance of panel to get size
             op = operations.defs[op][0]
             opPanel = getattr(operations, op).OpPanel(prnt, main)
-            size = opPanel.GetSizeTuple().Get()
+            size = opPanel.GetSize().Get()
             if size > txtSize:
                 txtSize = size
             opPanel.Destroy()
@@ -149,7 +149,7 @@ class IntroTextPanel(wx.Panel):
         fontStyle = fontParams['style']
 
         # adjust vertical spacing for top bar
-        gap = prnt.moveDown.GetSizeTuple()[1] + 24
+        gap = prnt.moveDown.GetSize()[1] + 24
 
         self.staticText1 = wx.StaticText(id=-1,
                                          label=_(u"You don't have any operations defined."),
@@ -222,8 +222,8 @@ class Panel(wx.Panel):
         applyTo.extension = wx.MenuItem(applyTo, wxID_MENUAPPLYEXTENSION,
                                         _(u"Extension"), kind=wx.ITEM_CHECK)
 
-        applyTo.AppendItem(applyTo.name)
-        applyTo.AppendItem(applyTo.extension)
+        applyTo.Append(applyTo.name)
+        applyTo.Append(applyTo.extension)
 
         self.Bind(wx.EVT_MENU, self.__set_operations_apply_menu,
                   id=wxID_MENUAPPLYNAME)
@@ -274,16 +274,16 @@ class Panel(wx.Panel):
         
         parent.changeName = wx.MenuItem(parent, wxID_MENUCHANGENAME, _(u"Change Name"))
 
-        parent.AppendItem(parent.up)
-        parent.AppendItem(parent.down)
+        parent.Append(parent.up)
+        parent.Append(parent.down)
         if _(u"directory") not in self.usedOperations.GetItemText(n):
             parent.applyToMenu = wx.MenuItem(parent, -1, _(u"Apply to"),
                                              subMenu=applyTo)
-            parent.AppendItem(parent.applyToMenu)
-        parent.AppendItem(parent.disable)
-        parent.AppendItem(parent.reset)
-        parent.AppendItem(parent.destroy)
-        parent.AppendItem(parent.destroyAll)
+            parent.Append(parent.applyToMenu)
+        parent.Append(parent.disable)
+        parent.Append(parent.reset)
+        parent.Append(parent.destroy)
+        parent.Append(parent.destroyAll)
 
         self.Bind(wx.EVT_MENU, self.__move_up_button,
                   id=wxID_MENUUP)
@@ -317,7 +317,7 @@ class Panel(wx.Panel):
         # add operations to list
         i = 0
         for op in sorted(operations.defs.keys()):
-            self.availableOperations.InsertStringItem(i, op)
+            self.availableOperations.InsertItem(i, op)
             i += 1
 
         # set vertical size
@@ -349,21 +349,21 @@ class Panel(wx.Panel):
         self.moveDown = wx.BitmapButton(bitmap=wx.Bitmap(utils.icon_path(u'down.png'),
                                         wx.BITMAP_TYPE_PNG), id=wxID_MOVEDOWN, name=u'moveDown',
                                         parent=self, style=wx.BU_AUTODRAW)
-        self.moveDown.SetToolTipString(_(u"Move current operation down by 1"))
+        self.moveDown.SetToolTip(_(u"Move current operation down by 1"))
         self.moveDown.Bind(wx.EVT_BUTTON, self.__move_down_button,
                            id=wxID_MOVEDOWN)
 
         self.moveUp = wx.BitmapButton(bitmap=wx.Bitmap(utils.icon_path(u'up.png'),
                                       wx.BITMAP_TYPE_PNG), id=wxID_MOVEUP, name=u'moveUp',
                                       parent=self, style=wx.BU_AUTODRAW)
-        self.moveUp.SetToolTipString(_(u"Move current operation up by 1"))
+        self.moveUp.SetToolTip(_(u"Move current operation up by 1"))
         self.moveUp.Bind(wx.EVT_BUTTON, self.__move_up_button,
                          id=wxID_MOVEUP)
 
         self.enableOperation = wx.ToggleButton(id=wxID_ENABLEOPERATION,
                                                label=_(u"Disable"), name=u'enableOperation', parent=self,
                                                style=wx.BU_EXACTFIT)
-        self.enableOperation.SetToolTipString(_(u"Enable or Disable current operation"))
+        self.enableOperation.SetToolTip(_(u"Enable or Disable current operation"))
         self.enableOperation.SetValue(False)
         self.enableOperation.Bind(wx.EVT_TOGGLEBUTTON,
                                   self.__operation_toggle_btn, id=wxID_ENABLEOPERATION)
@@ -371,13 +371,13 @@ class Panel(wx.Panel):
         self.deleteOperations = wx.Choice(choices=[_(u"Delete"), _(u"Delete All")],
                                           id=wxID_DELETEOPERATIONS, name=u'actions', parent=self)
         self.deleteOperations.SetSelection(0)
-        self.deleteOperations.SetToolTipString(_(u"Delete operations"))
+        self.deleteOperations.SetToolTip(_(u"Delete operations"))
         self.deleteOperations.Bind(wx.EVT_CHOICE, self.__actions_choice, id=wxID_DELETEOPERATIONS)
 
         self.resetOperationButton = wx.Button(id=wxID_RESETOPERATIONBUTTON,
                                               label=_(u"Reset"), name=u'resetOperationButton', parent=self,
                                               style=wx.BU_EXACTFIT)
-        self.resetOperationButton.SetToolTipString(_(u"Reset the current operation"))
+        self.resetOperationButton.SetToolTip(_(u"Reset the current operation"))
         self.resetOperationButton.Bind(wx.EVT_BUTTON, self.__reset_operation,
                                        id=wxID_RESETOPERATIONBUTTON)
 
@@ -476,7 +476,7 @@ class Panel(wx.Panel):
         self.mainSizer.Layout()
 
     def __add_operation_to_list(self, pos, opName):
-        self.usedOperations.InsertStringItem(pos, unicode(pos + 1) + u": " + opName)
+        self.usedOperations.InsertItem(pos, unicode(pos + 1) + u": " + opName)
 
     def __set_operations_apply_menu(self, event):
         """
@@ -667,7 +667,7 @@ class Panel(wx.Panel):
                 oldText = self.usedOperations.GetItemText(n)
 
                 self.usedOperations.DeleteItem(n)
-                self.usedOperations.InsertStringItem(moveTo, oldText)
+                self.usedOperations.InsertItem(moveTo, oldText)
                 self.__reassign_numbers()
                 self.Core.move_operations(n, moveTo)
                 self.usedOperations.Select(moveTo)

@@ -61,7 +61,7 @@ class Panel(wx.Panel):
         self.repl_txt = wx.TextCtrl(id=wxID_PANELREPL_TXT,
                                     name=u'repl_txt', parent=self,
                                     style=wx.TE_PROCESS_ENTER, value=u'')
-        self.repl_txt.SetToolTipString(_(u"Keep blank to delete."))
+        self.repl_txt.SetToolTip(_(u"Keep blank to delete."))
         self.repl_txt.Bind(wx.EVT_TEXT, main.show_preview)
         self.repl_txt.Bind(wx.EVT_TEXT_ENTER, main.show_preview)
 

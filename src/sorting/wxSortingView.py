@@ -131,28 +131,28 @@ class Panel(wx.Panel):
         self.upTop = wx.BitmapButton(bitmap=wx.Bitmap(utils.icon_path(u'upAll.ico'),
                                      wx.BITMAP_TYPE_ICO), id=wxID_SORTINGPANELUPTOP, name=u'upTop',
                                      parent=self, style=wx.BU_AUTODRAW)
-        self.upTop.SetToolTipString(_(u"move to top"))
+        self.upTop.SetToolTip(_(u"move to top"))
         self.upTop.Bind(wx.EVT_BUTTON, self.change_item_order,
                         id=wxID_SORTINGPANELUPTOP)
 
         self.downBottom = wx.BitmapButton(bitmap=wx.Bitmap(utils.icon_path(u'downAll.ico'),
                                           wx.BITMAP_TYPE_ICO), id=wxID_SORTINGPANELDOWNBOTTOM,
                                           name=u'downBottom', parent=self, style=wx.BU_AUTODRAW)
-        self.downBottom.SetToolTipString(_(u"move to bottom"))
+        self.downBottom.SetToolTip(_(u"move to bottom"))
         self.downBottom.Bind(wx.EVT_BUTTON, self.change_item_order,
                              id=wxID_SORTINGPANELDOWNBOTTOM)
 
         self.upMore = wx.BitmapButton(bitmap=wx.Bitmap(utils.icon_path(u'up5.png'),
                                       wx.BITMAP_TYPE_PNG), id=wxID_SORTINGPANELUPMORE, name=u'upMore',
                                       parent=self, style=wx.BU_AUTODRAW)
-        self.upMore.SetToolTipString(_(u"move by 5"))
+        self.upMore.SetToolTip(_(u"move by 5"))
         self.upMore.Bind(wx.EVT_BUTTON, self.change_item_order,
                          id=wxID_SORTINGPANELUPMORE)
 
         self.downMore = wx.BitmapButton(bitmap=wx.Bitmap(utils.icon_path(u'down5.png'),
                                         wx.BITMAP_TYPE_PNG), id=wxID_SORTINGPANELDOWNMORE,
                                         name=u'downMore', parent=self, style=wx.BU_AUTODRAW)
-        self.downMore.SetToolTipString(_(u"move by 5"))
+        self.downMore.SetToolTip(_(u"move by 5"))
         self.downMore.Bind(wx.EVT_BUTTON, self.change_item_order,
                            id=wxID_SORTINGPANELDOWNMORE)
 
@@ -166,7 +166,7 @@ class Panel(wx.Panel):
         self.normalSort = wx.RadioButton(id=wxID_SORTINGPANELNORMALSORT,
                                          label=_(u"Sort normally"), name=u'normalSort',
                                          parent=self, style=wx.RB_GROUP)
-        self.normalSort.SetToolTipString(_(u"Standard sorting by item name."))
+        self.normalSort.SetToolTip(_(u"Standard sorting by item name."))
         self.normalSort.SetValue(True)
         self.normalSort.Bind(wx.EVT_RADIOBUTTON, self.setSortingOptions,
                              id=wxID_SORTINGPANELNORMALSORT)
@@ -174,7 +174,7 @@ class Panel(wx.Panel):
         self.intelySort = wx.RadioButton(id=wxID_SORTINGPANELINTELYSORT,
                                          label=_(u"Sort numbers intelligently"), name=u'intelySort',
                                          parent=self, style=0)
-        self.intelySort.SetToolTipString(_(u"Order these types of items: ...19, 2, 20...\nMay have unpredictable results!"))
+        self.intelySort.SetToolTip(_(u"Order these types of items: ...19, 2, 20...\nMay have unpredictable results!"))
         self.intelySort.Bind(wx.EVT_RADIOBUTTON, self.setStatOptions,
                              id=wxID_SORTINGPANELINTELYSORT)
 

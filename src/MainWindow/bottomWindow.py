@@ -78,10 +78,10 @@ class ListCtrl(wx.ListCtrl):
         menu.removeAndPreview.SetBitmap(wx.Bitmap(utils.icon_path(u'errors.png'),
                                         wx.BITMAP_TYPE_PNG))
 
-        menu.AppendItem(menu.edit)
-        menu.AppendItem(menu.remove)
-        menu.AppendItem(menu.removeAndPreview)
-        #menu.AppendItem(parent.disable)
+        menu.Append(menu.edit)
+        menu.Append(menu.remove)
+        menu.Append(menu.removeAndPreview)
+        #menu.Append(parent.disable)
 
         self.Bind(wx.EVT_MENU, self._remove_items,
                   id=wxID_MENUREMOVE)
@@ -256,7 +256,7 @@ class MainPanel(wx.Panel):
         self.imgPreview = wx.CheckBox(id=wxID_IMGPREVIEW,
                                       label=_(u"Show image thumbnails"), name=u'imgPreview', parent=self,
                                       style=0)
-        self.imgPreview.SetToolTipString(_(u"Can slow preview considerably"))
+        self.imgPreview.SetToolTip(_(u"Can slow preview considerably"))
         self.imgPreview.SetValue(False)
         self.imgPreview.Bind(wx.EVT_CHECKBOX, self.__refresh_picker)
 
@@ -265,7 +265,7 @@ class MainPanel(wx.Panel):
                                    name=u'dirsPlace', parent=self, size=wx.Size(62, -1),
                                    style=0)
         self.thumbSize.SetSelection(1)
-        self.thumbSize.SetToolTipString(_(u"Thumbnail Size"))
+        self.thumbSize.SetToolTip(_(u"Thumbnail Size"))
         self.thumbSize.Bind(wx.EVT_CHOICE, self.__set_thumb_size)
 
         if not utils.is_pil_loaded():
@@ -276,7 +276,7 @@ class MainPanel(wx.Panel):
         self.autoPreview = wx.CheckBox(id=wxID_AUTOPREVIEW,
                                        label=_(u"Automatic Preview"), name=u'autoPreview', parent=self,
                                        style=0)
-        self.autoPreview.SetToolTipString(_(u"Disable when working with many items"))
+        self.autoPreview.SetToolTip(_(u"Disable when working with many items"))
         self.autoPreview.SetValue(True)
 
     def __init__(self, prnt, MainWindow):

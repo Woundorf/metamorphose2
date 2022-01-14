@@ -72,19 +72,19 @@ class Panel(wx.Panel):
 
         self.willChangeColorTxt = wx.StaticText(self, id=-1, label=_(u"Will be renamed"))
         self.willChangeColor = ColourPickerCtrl(self, col='#E5FFE5', name="willChangeColor")
-        self.willChangeColor.SetToolTipString(_(u"Color of items to be renamed."))
+        self.willChangeColor.SetToolTip(_(u"Color of items to be renamed."))
 
         self.renamedColorTxt = wx.StaticText(self, id=-1, label=_(u"Successfully renamed"))
         self.renamedColor = ColourPickerCtrl(self, col='#97F27F', name="renamedColor")
-        self.renamedColor.SetToolTipString(_(u"Color of successfully renamed items."))
+        self.renamedColor.SetToolTip(_(u"Color of successfully renamed items."))
 
         self.errorColorTxt = wx.StaticText(self, -1, label=_(u"Error"))
         self.errorColor = ColourPickerCtrl(self, col='#FF1616', name="errorColor")
-        self.errorColor.SetToolTipString(_(u"Color of items with errors."))
+        self.errorColor.SetToolTip(_(u"Color of items with errors."))
 
         self.warnColorTxt = wx.StaticText(self, -1, label=_(u"Warning"))
         self.warnColor = ColourPickerCtrl(self, col='#FDEB22', name="warnColor")
-        self.warnColor.SetToolTipString(_(u"Color of items with warnings."))
+        self.warnColor.SetToolTip(_(u"Color of items with warnings."))
 
         self.setDefaultsBtn = wx.Button(self, -1, label=_(u"Set colors to defaults"),
                                         name=u'setDefaultsBtn')

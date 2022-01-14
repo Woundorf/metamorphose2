@@ -133,18 +133,18 @@ class MainWindow(wx.Frame):
         parent.exitMenu.SetBitmap(wx.Bitmap(utils.icon_path(u'exit.png'),
                                   wx.BITMAP_TYPE_PNG))
 
-        parent.AppendItem(parent.LoadIniMenu)
-        parent.AppendItem(parent.SaveIniMenu)
+        parent.Append(parent.LoadIniMenu)
+        parent.Append(parent.SaveIniMenu)
         parent.AppendSeparator()
-        parent.AppendItem(parent.SaveLog)
+        parent.Append(parent.SaveLog)
         parent.SaveLog.Enable(False)
-        parent.AppendItem(parent.Import)
+        parent.Append(parent.Import)
         parent.AppendSeparator()
-        parent.AppendItem(parent.PreviewMenu)
-        parent.AppendItem(parent.GoMenu)
+        parent.Append(parent.PreviewMenu)
+        parent.Append(parent.GoMenu)
         parent.AppendSeparator()
-        parent.AppendItem(parent.resetApp)
-        parent.AppendItem(parent.exitMenu)
+        parent.Append(parent.resetApp)
+        parent.Append(parent.exitMenu)
 
         self.Bind(wx.EVT_MENU, self.save_items_as_text,
                   id=wxID_MENUFILE_SAVELOG)
@@ -176,8 +176,8 @@ class MainWindow(wx.Frame):
         parent.destroyAllMenu.SetBitmap(wx.Bitmap(utils.icon_path(u'nuke.png'),
                                         wx.BITMAP_TYPE_PNG))
 
-        parent.AppendItem(parent.destroyMenu)
-        parent.AppendItem(parent.destroyAllMenu)
+        parent.Append(parent.destroyMenu)
+        parent.Append(parent.destroyAllMenu)
 
         self.Bind(wx.EVT_MENU, self.renamer.view.delete_operation,
                   id=wxID_MENURENAMER_DESTROY)
@@ -212,12 +212,12 @@ class MainWindow(wx.Frame):
         parent.walkMenu.SetBitmap(wx.Bitmap(utils.icon_path(u'walk.png'),
                                   wx.BITMAP_TYPE_PNG))
 
-        parent.AppendItem(parent.browseMenu)
-        parent.AppendItem(parent.okMenu)
+        parent.Append(parent.browseMenu)
+        parent.Append(parent.okMenu)
         parent.AppendSeparator()
-        parent.AppendItem(parent.getAllMenu)
-        parent.AppendItem(parent.getNoneMenu)
-        parent.AppendItem(parent.walkMenu)
+        parent.Append(parent.getAllMenu)
+        parent.Append(parent.getNoneMenu)
+        parent.Append(parent.walkMenu)
 
         self.Bind(wx.EVT_MENU, self.picker.browse_for_path,
                   id=wxID_MENUPICKER_BROWSE)
@@ -241,11 +241,11 @@ class MainWindow(wx.Frame):
 
         parent.PrefsMenu.SetBitmap(wx.Bitmap(
                                    utils.icon_path(u'preferences.ico'), wx.BITMAP_TYPE_ICO))
-        parent.AppendItem(parent.PrefsMenu)
+        parent.Append(parent.PrefsMenu)
 
         parent.langMenu.SetBitmap(wx.Bitmap(
                                   utils.icon_path(u'language.png'), wx.BITMAP_TYPE_PNG))
-        parent.AppendItem(parent.langMenu)
+        parent.Append(parent.langMenu)
 
         self.Bind(wx.EVT_MENU, self.show_preferences,
                   id=wxID_MENUSETTINGS_PREFERENCES)
@@ -283,11 +283,11 @@ class MainWindow(wx.Frame):
         parent.REhelpMenu.SetBitmap(wx.Bitmap(utils.icon_path(u're.ico'),
                                     wx.BITMAP_TYPE_ICO))
 
-        parent.AppendItem(parent.aboutMenu)
-        parent.AppendItem(parent.helpMenu)
-        parent.AppendItem(parent.examplesMenu)
-        parent.AppendItem(parent.FormatHelpMenu)
-        parent.AppendItem(parent.REhelpMenu)
+        parent.Append(parent.aboutMenu)
+        parent.Append(parent.helpMenu)
+        parent.Append(parent.examplesMenu)
+        parent.Append(parent.FormatHelpMenu)
+        parent.Append(parent.REhelpMenu)
 
         self.Bind(wx.EVT_MENU, self.show_about,
                   id=wxID_MENUHELP_ABOUT)

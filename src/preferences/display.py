@@ -88,7 +88,7 @@ class Panel(wx.Panel):
                                          max=300, min=1, name=u'renRefreshMin', parent=self,
                                          size=wx.Size(55, -1), style=wx.SP_ARROW_KEYS, value='80')
         self.renRefreshMin.SetValue(80)
-        self.renRefreshMin.SetToolTipString(_(u"Higher = faster ; Lower = more feedback"))
+        self.renRefreshMin.SetToolTip(_(u"Higher = faster ; Lower = more feedback"))
 
         self.showProgressDialog = wx.CheckBox(id=wxID_PANELSHOWPROGRESSDIALOG,
                                               label=_(u"Show progress dialog when previewing many items"),
