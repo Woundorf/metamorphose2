@@ -20,9 +20,9 @@ Uses search panel.
 
 import sre_constants
 
-import accentStrip
-from operation import Operation
-import search
+from . import accentStrip
+from .operation import Operation
+from . import search
 import utils
 import wx
 

@@ -18,7 +18,7 @@ The bottom half of the main window.
 import os
 
 import app
-import editDialog
+from . import editDialog
 import utils
 import wx
 import wx.lib.buttons as buttons
@@ -218,14 +218,14 @@ class MainPanel(wx.Panel):
     def __init_sizer(self):
         buttonSizer = self.buttonSizer = wx.BoxSizer(wx.HORIZONTAL)
         mainSizer = self.mainSizer = wx.BoxSizer(wx.VERTICAL)
-        buttonSizer.AddWindow(self.preview, 0, wx.LEFT, 10)
-        buttonSizer.AddWindow(self.go, 0, wx.LEFT, 10)
-        buttonSizer.AddSpacer((-1, 25), 1)
-        buttonSizer.AddWindow(self.imgPreview, 0, wx.ALIGN_CENTER | wx.RIGHT, 5)
-        buttonSizer.AddWindow(self.thumbSize, 0, wx.ALIGN_CENTER | wx.RIGHT, 15)
-        buttonSizer.AddWindow(self.autoPreview, 0, wx.ALIGN_CENTER | wx.RIGHT, 5)
-        mainSizer.AddSizer(buttonSizer, 0, wx.EXPAND | wx.ALIGN_LEFT | wx.TOP, 5)
-        mainSizer.AddWindow(self.display, 1, wx.EXPAND | wx.ALL, 5)
+        buttonSizer.Add(self.preview, 0, wx.LEFT, 10)
+        buttonSizer.Add(self.go, 0, wx.LEFT, 10)
+        buttonSizer.Add((-1, 25), 1)
+        buttonSizer.Add(self.imgPreview, 0, wx.ALIGN_CENTER | wx.RIGHT, 5)
+        buttonSizer.Add(self.thumbSize, 0, wx.ALIGN_CENTER | wx.RIGHT, 15)
+        buttonSizer.Add(self.autoPreview, 0, wx.ALIGN_CENTER | wx.RIGHT, 5)
+        mainSizer.Add(buttonSizer, 0, wx.EXPAND | wx.ALIGN_LEFT | wx.TOP, 5)
+        mainSizer.Add(self.display, 1, wx.EXPAND | wx.ALL, 5)
         self.SetSizerAndFit(mainSizer)
 
     def __init_ctrls(self, prnt):

@@ -22,10 +22,10 @@ import re
 import sys
 
 import app
-from exif import EXIF
+from exif import exifread
 import classes
 import utils
-import wxSortingView
+from . import wxSortingView
 
 
 class Parameters(classes.Parameters):
@@ -73,7 +73,7 @@ class Core():
             return False
         else:
             # get the tags
-            data = EXIF.process_file(file, details=False)
+            data = exifread.process_file(file, details=False)
             if not data:
                 return False
             else:

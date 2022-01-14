@@ -33,69 +33,69 @@ class Panel(wx.Panel):
     """
 
     def __init_num1_sizer(self, parent):
-        parent.AddWindow(self.digit, 0, border=0, flag=0)
-        parent.AddWindow(self.digit_pad, 0, border=0, flag=0)
-        parent.AddWindow(self.pad_char, 0, border=0, flag=0)
+        parent.Add(self.digit, 0, border=0, flag=0)
+        parent.Add(self.digit_pad, 0, border=0, flag=0)
+        parent.Add(self.pad_char, 0, border=0, flag=0)
 
     def __init_main_sizer(self, parent):
-        parent.AddSizer(self.styleSizer, 0, border=10, flag=wx.LEFT | wx.TOP)
-        parent.AddSpacer(wx.Size(30, 8), border=0, flag=0)
-        parent.AddSizer(self.countSizer, 0, border=10, flag=wx.TOP)
+        parent.Add(self.styleSizer, 0, border=10, flag=wx.LEFT | wx.TOP)
+        parent.Add(wx.Size(30, 8), border=0, flag=0)
+        parent.Add(self.countSizer, 0, border=10, flag=wx.TOP)
 
     def __init_style_sizer(self, parent):
-        parent.AddSizer(self.num1Sizer, 0, border=8, flag=wx.TOP | wx.LEFT)
-        parent.AddSpacer(wx.Size(8, 5), border=0, flag=0)
-        parent.AddWindow(self.digit_autopad, 0, border=24, flag=wx.LEFT)
-        parent.AddSpacer(wx.Size(8, 5), border=0, flag=0)
-        parent.AddSizer(self.num2Sizer, 0, border=24, flag=wx.LEFT)
-        parent.AddSpacer(wx.Size(8, 10), border=0, flag=wx.TOP)
-        parent.AddSizer(self.alpha1Sizer, 0, border=8, flag=wx.TOP | wx.LEFT)
-        parent.AddSpacer(wx.Size(8, 5), border=0, flag=0)
-        parent.AddWindow(self.alphaPad, 0, border=24, flag=wx.LEFT)
-        parent.AddSpacer(wx.Size(8, 10), border=0, flag=0)
-        parent.AddSizer(self.romanSizer, 0, border=10, flag=wx.ALL)
+        parent.Add(self.num1Sizer, 0, border=8, flag=wx.TOP | wx.LEFT)
+        parent.Add(wx.Size(8, 5), border=0, flag=0)
+        parent.Add(self.digit_autopad, 0, border=24, flag=wx.LEFT)
+        parent.Add(wx.Size(8, 5), border=0, flag=0)
+        parent.Add(self.num2Sizer, 0, border=24, flag=wx.LEFT)
+        parent.Add(wx.Size(8, 10), border=0, flag=wx.TOP)
+        parent.Add(self.alpha1Sizer, 0, border=8, flag=wx.TOP | wx.LEFT)
+        parent.Add(wx.Size(8, 5), border=0, flag=0)
+        parent.Add(self.alphaPad, 0, border=24, flag=wx.LEFT)
+        parent.Add(wx.Size(8, 10), border=0, flag=0)
+        parent.Add(self.romanSizer, 0, border=10, flag=wx.ALL)
 
     def __init_resetby_sizer(self, parent):
-        parent.AddWindow(self.resetDir, 0, border=0, flag=0)
-        parent.AddWindow(self.incrementOnDiff, 0, border=2, flag=wx.BOTTOM)
+        parent.Add(self.resetDir, 0, border=0, flag=0)
+        parent.Add(self.incrementOnDiff, 0, border=2, flag=wx.BOTTOM)
 
 
     def __init_num2_sizer(self, parent):
-        parent.AddWindow(self.digitSetpad, 0, border=0, flag=0)
-        parent.AddWindow(self.padWidth, 0, border=0, flag=0)
+        parent.Add(self.digitSetpad, 0, border=0, flag=0)
+        parent.Add(self.padWidth, 0, border=0, flag=0)
 
     def __init_alpha1_sizer(self, parent):
-        parent.AddWindow(self.alpha, 0, border=0, flag=0)
-        parent.AddWindow(self.alphaUc, 0, border=0, flag=0)
+        parent.Add(self.alpha, 0, border=0, flag=0)
+        parent.Add(self.alphaUc, 0, border=0, flag=0)
 
     def __init_count_sizer(self, parent):
-        parent.AddSizer(self.countOpSizer, 0, border=8, flag=wx.ALL)
+        parent.Add(self.countOpSizer, 0, border=8, flag=wx.ALL)
 
     def __init_countop_sizer(self, parent):
-        parent.AddWindow(self.staticText5, 0, border=0,
+        parent.Add(self.staticText5, 0, border=0,
                          flag=wx.ALIGN_CENTER_VERTICAL)
-        parent.AddWindow(self.start, 0, border=0, flag=0)
-        parent.AddWindow(self.startByItems, 0, border=0, flag=0)
-        parent.AddWindow(self.staticText6, 0, border=0,
+        parent.Add(self.start, 0, border=0, flag=0)
+        parent.Add(self.startByItems, 0, border=0, flag=0)
+        parent.Add(self.staticText6, 0, border=0,
                          flag=wx.ALIGN_CENTER_VERTICAL)
-        parent.AddWindow(self.asc, 0, border=0, flag=wx.ALIGN_CENTER_VERTICAL)
-        parent.AddWindow(self.desc, 0, border=0, flag=wx.ALIGN_CENTER_VERTICAL)
-        parent.AddWindow(self.staticText7, 0, border=0,
+        parent.Add(self.asc, 0, border=0, flag=wx.ALIGN_CENTER_VERTICAL)
+        parent.Add(self.desc, 0, border=0, flag=wx.ALIGN_CENTER_VERTICAL)
+        parent.Add(self.staticText7, 0, border=0,
                          flag=wx.ALIGN_CENTER_VERTICAL)
-        parent.AddWindow(self.step, 0, border=0, flag=0)
-        parent.AddWindow(self.countByDir, 0, border=5, flag=wx.LEFT | wx.ALIGN_CENTER_VERTICAL)
-        parent.AddWindow(self.staticText3, 0, border=0,
+        parent.Add(self.step, 0, border=0, flag=0)
+        parent.Add(self.countByDir, 0, border=5, flag=wx.LEFT | wx.ALIGN_CENTER_VERTICAL)
+        parent.Add(self.staticText3, 0, border=0,
                          flag=wx.ALIGN_CENTER_VERTICAL)
-        parent.AddWindow(self.repeat, 0, border=0, flag=0)
-        parent.AddSpacer(wx.Size(8, 8), border=0, flag=0)
-        parent.AddWindow(self.staticText1, 0, border=0,
+        parent.Add(self.repeat, 0, border=0, flag=0)
+        parent.Add(wx.Size(8, 8), border=0, flag=0)
+        parent.Add(self.staticText1, 0, border=0,
                          flag=wx.ALIGN_CENTER_VERTICAL)
-        parent.AddWindow(self.reset, 0, border=0, flag=wx.ALIGN_CENTER_VERTICAL)
-        parent.AddSizer(self.resetBySizer, 0, border=5, flag=wx.RIGHT | wx.LEFT)
+        parent.Add(self.reset, 0, border=0, flag=wx.ALIGN_CENTER_VERTICAL)
+        parent.Add(self.resetBySizer, 0, border=5, flag=wx.RIGHT | wx.LEFT)
 
     def __init_roman_sizer(self, parent):
-        parent.AddWindow(self.roman, 0, border=0, flag=0)
-        parent.AddWindow(self.roman_uc, 0, border=0, flag=0)
+        parent.Add(self.roman, 0, border=0, flag=0)
+        parent.Add(self.roman_uc, 0, border=0, flag=0)
 
     def __init_sizers(self):
         self.mainSizer = wx.BoxSizer(orient=wx.HORIZONTAL)

@@ -63,13 +63,17 @@ class Core():
         """
         try:
             shutil1.move(original[0], renamed[0], True)
-        except IOError as (errNumb, err):
+        except IOError as error:
+            errNumb = error.errno
+            err = error.strerror
             app.debug_print("IOError : %s, %s" % (errNumb, err))
             # may need to create dirs first
             if errNumb == 2 and not os.path.exists(os.path.dirname(renamed[0])):
                 try:
                     os.makedirs(os.path.dirname(renamed[0]))
-                except OSError as (n, err):
+                except OSError as error:
+                    n = error.errno
+                    err = error.strerror
                     self._show_rename_error(i, err, original, renamed)
                     return 'makedirs'
                 else:
@@ -77,7 +81,9 @@ class Core():
             else:
                 self._show_rename_error(i, err, original, renamed)
                 return True
-        except OSError as (errNumb, err):
+        except OSError as error:
+            errNumb = error.errno
+            err = error.strerror
             app.debug_print("OSError : %s, %s" % (errNumb, err))
             # don't stop for a read-only error if the renamed item exists
             if not (errNumb == 30 and os.path.exists(renamed[0])):
@@ -210,7 +216,9 @@ class Core():
             try:
                 self.originalFile = codecs.open(utils.get_user_path(u'undo/original.bak'), 'w', "utf-8")
                 self.renamedFile = codecs.open(utils.get_user_path(u'undo/renamed.bak'), 'w', "utf-8")
-            except IOError as (n, strerror):
+            except IOError as error:
+                n = error.errno
+                strerror = error.strerror
                 msg = strerror + _(u"\nMake sure 'undo' directory exists and is read/write\n\nYou will not be able to undo!!\nDo you want to continue??")
                 title = _(u"Problem with undo!")
                 if not utils.make_yesno_dlg(msg, title):

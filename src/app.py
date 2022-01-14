@@ -45,7 +45,6 @@ def __set_real_path():
         path = False
         for path in sys.path:
             if 'metamorphose' in path:
-                path = path.decode(sys.getfilesystemencoding())
                 break
         if not path:
             print("Could not determine application path.\nMake sure the application is correctly installed.\n")

@@ -12,8 +12,8 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-from operation import Operation
-import search
+from .operation import Operation
+from . import search
 import utils
 import wx
 

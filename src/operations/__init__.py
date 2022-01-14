@@ -14,13 +14,13 @@
 
 """Operation definitions."""
 
-import changeLength
-import directory
-import insert
-import modification
-import move
-import replace
-import swap
+from . import changeLength
+from . import directory
+from . import insert
+from . import modification
+from . import move
+from . import replace
+from . import swap
 #import yourModuleName
 
 

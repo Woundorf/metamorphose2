@@ -15,9 +15,9 @@
 import platform
 import sys
 
-from operation import Operation
-import regExpr
-import search
+from .operation import Operation
+from . import regExpr
+from . import search
 import utils
 import wx
 

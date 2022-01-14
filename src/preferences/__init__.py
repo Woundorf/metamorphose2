@@ -18,12 +18,12 @@ import logging
 import os
 
 import app
-import automation
-import colors
-from dialog import Dialog
-import display
-import errorCheck
-import general
+from . import automation
+from . import colors
+from .dialog import Dialog
+from . import display
+from . import errorCheck
+from . import general
 import utils
 import sys
 import wx
@@ -95,7 +95,7 @@ class Methods:
                 except KeyError:
                     pass
                 except ValueError:
-                    prefs[split[0]] = unicode(split[1])
+                    prefs[split[0]] = split[1]
                     pass
         prefFile.close()
         return prefs

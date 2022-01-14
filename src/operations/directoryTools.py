@@ -15,7 +15,7 @@
 import os
 import re
 
-import opButtons
+from . import opButtons
 import utils
 import wx
 

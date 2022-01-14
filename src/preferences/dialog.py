@@ -16,11 +16,11 @@ from __future__ import print_function
 import logging
 
 import app
-import automation
-import colors
-import display
-import errorCheck
-import general
+from . import automation
+from . import colors
+from . import display
+from . import errorCheck
+from . import general
 import utils
 import wx
 

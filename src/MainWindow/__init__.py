@@ -27,7 +27,7 @@ import re
 import sys
 import time
 
-import EnhancedStatusBar as ESB
+from . import EnhancedStatusBar as ESB
 import about
 import app
 import classes
@@ -485,7 +485,7 @@ class MainWindow(wx.Frame):
             print("Try running messages/update_langs.sh\n")
             sys.exit(1)
 
-        Lang.install(unicode=True)
+        Lang.install()
 
         # set some globals
         if language not in rightToLeftLanguages:
@@ -498,7 +498,7 @@ class MainWindow(wx.Frame):
         app.debug_print("Set language: " + app.language)
 
         locale.setlocale(locale.LC_ALL,'')
-        self.encoding = unicode(locale.getlocale()[1])
+        self.encoding = locale.getlocale()[1]
         app.debug_print("Set encoding: " + self.encoding)
 
         # to get some language settings to display properly:
@@ -557,7 +557,7 @@ class MainWindow(wx.Frame):
         global picker
         import picker
         global bottomWindow
-        import bottomWindow
+        from . import bottomWindow
 
         # initialize preferences
         app.debug_print("======== Preferences =======")
@@ -577,7 +577,7 @@ class MainWindow(wx.Frame):
                 renamedFile = codecs.open(utils.get_user_path(u'undo/renamed.bak'),
                                           'w', "utf-8")
                 renamedFile.write('')
-            except IOError, error:
+            except IOError as error:
                 utils.make_err_msg(_(u"%s\n\nCould not clear undo") % error,
                                    _(u"Error"))
                 pass
@@ -642,8 +642,8 @@ class MainWindow(wx.Frame):
         """Write given language to 'language.ini' file."""
         try:
             langFile = codecs.open(utils.get_user_path(u'language.ini'), 'w', 'utf-8')
-        except IOError, error:
-            utils.make_err_msg(unicode(error), u"Error")
+        except IOError as error:
+            utils.make_err_msg(error, u"Error")
             pass
         else:
             langFile.write(language)
@@ -700,7 +700,7 @@ class MainWindow(wx.Frame):
 
             # create file contents
             for original, renamed in self.toRename:
-                CSVfile += unicode(q + original[0] + q + sep + q + renamed[0] + q + '\n')
+                CSVfile += q + original[0] + q + sep + q + renamed[0] + q + '\n'
 
             if app.showTimes:
                 print("Export file contents for %s items: %s" % (len(self.toRename), (time.time() - t)))

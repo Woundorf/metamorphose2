@@ -241,7 +241,7 @@ class LoadConfig():
                 parent = getattr(parent, id)
             except AttributeError:
                 self.loadError = True
-                print id
+                print(id)
                 pass
             else:
                 for child in node.childNodes:

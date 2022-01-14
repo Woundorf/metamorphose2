@@ -15,8 +15,8 @@
 import platform
 import sys
 
-import opButtons
-import regExpr
+from . import opButtons
+from . import regExpr
 import wx
 
 [wxID_PANEL, wxID_PANELAFTER, wxID_PANELBARE, wxID_PANELBAREI,

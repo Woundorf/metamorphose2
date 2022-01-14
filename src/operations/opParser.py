@@ -24,7 +24,7 @@ import re
 import sys
 import time
 
-from exif import EXIF
+from exif import exifread
 import app
 from mutagen.apev2 import APEv2File
 from mutagen.asf import ASF
@@ -43,7 +43,7 @@ from mutagen.oggvorbis import OggVorbis
 from mutagen.optimfrog import OptimFROG
 from mutagen.trueaudio import TrueAudio
 from mutagen.wavpack import WavPack
-import roman
+from . import roman
 import utils
 
 # Metadata tag translations
@@ -238,14 +238,14 @@ class Parser():
             except IOError:
                 self.__add_to_errors(path, _(u"Could not open file!"))
             else:
-                tags = EXIF.process_file(file, details=False, stop_tag=tag)
+                tags = exifread.process_file(file, details=False, stop_tag=tag)
                 # see if the tag exists
                 if tags.has_key(tag):
                     try:
                         itemDateTime = str(tags[tag])
                         itemDateTime = re.compile(r'\D').split(itemDateTime)
                         itemDateTime = map(int, itemDateTime)
-                    except ValueError, err:
+                    except ValueError as err:
                         self.__add_to_warnings(path, _(u"Exif error: %s") % err)
                         return False
 
@@ -255,7 +255,7 @@ class Parser():
                                                    itemDateTime[1],
                                                    itemDateTime[2])
                     # invalid date
-                    except ValueError, err:
+                    except ValueError as err:
                         self.__add_to_warnings(path, _(u"Exif error: %s") % err)
                     else:
                         itemDateTime.extend([dayWeek, 1, 0])
@@ -420,7 +420,7 @@ class Parser():
             for segment in text:
                 if segment in commands[10:]:
                     file_rb = open(file, 'rb')
-                    imageMetadata = EXIF.process_file(file_rb, details=False)
+                    imageMetadata = exifread.process_file(file_rb, details=False)
                     break
         # process here to load audio metadata only once
         elif isAudio:

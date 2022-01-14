@@ -19,7 +19,7 @@ import classes
 import utils
 import wx
 import wx.lib.buttons
-import wx.lib.hyperlink as hl
+import wx.lib.agw.hyperlink as hl
 
 
 def create(parent):
@@ -35,12 +35,12 @@ class About(wx.Dialog):
     """The about dialog."""
 
     def _get_wxversion(self):
-	"""Get the wxPython Version."""
-	wxVer = ""
-	for x in wx.VERSION:
-	    wxVer = wxVer + str(x) + "."
-	wxVer = wxVer.rstrip(".")
-	return wxVer
+        """Get the wxPython Version."""
+        wxVer = ""
+        for x in wx.VERSION:
+            wxVer = wxVer + str(x) + "."
+        wxVer = wxVer.rstrip(".")
+        return wxVer
   
     def __init_sizer(self):
         bottomRow = wx.BoxSizer(wx.HORIZONTAL)

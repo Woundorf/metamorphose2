@@ -38,10 +38,10 @@ import wx
  ] = [wx.NewId() for __init_ctrls in range(26)]
 
 
-BackgroundClr = wx.SystemSettings_GetColour(wx.SYS_COLOUR_WINDOW)
-HighlightClr = wx.SystemSettings_GetColour(wx.SYS_COLOUR_HIGHLIGHT)
-HighlightTxtClr = wx.SystemSettings_GetColour(wx.SYS_COLOUR_HIGHLIGHTTEXT)
-TxtClr = wx.SystemSettings_GetColour(wx.SYS_COLOUR_WINDOWTEXT)
+BackgroundClr = wx.SystemSettings.GetColour(wx.SYS_COLOUR_WINDOW)
+HighlightClr = wx.SystemSettings.GetColour(wx.SYS_COLOUR_HIGHLIGHT)
+HighlightTxtClr = wx.SystemSettings.GetColour(wx.SYS_COLOUR_HIGHLIGHTTEXT)
+TxtClr = wx.SystemSettings.GetColour(wx.SYS_COLOUR_WINDOWTEXT)
 
 
 class OperationDropTarget(wx.TextDropTarget):
@@ -138,7 +138,7 @@ class IntroTextPanel(wx.Panel):
             # create temporary instance of panel to get size
             op = operations.defs[op][0]
             opPanel = getattr(operations, op).OpPanel(prnt, main)
-            size = opPanel.GetSizeTuple()
+            size = opPanel.GetSizeTuple().Get()
             if size > txtSize:
                 txtSize = size
             opPanel.Destroy()
@@ -184,31 +184,31 @@ class Panel(wx.Panel):
         mainSizer = self.mainSizer = wx.BoxSizer(wx.HORIZONTAL)
 
         leftSizer = wx.BoxSizer(wx.VERTICAL)
-        leftSizer.AddWindow(self.staticText1, 0, )
-        leftSizer.AddWindow(self.availableOperations, 0, wx.BOTTOM, 5)
-        leftSizer.AddWindow(self.staticText2, 0, wx.TOP, 5)
-        leftSizer.AddWindow(self.usedOperations, 1)
-        mainSizer.AddSizer(leftSizer, 0, wx.EXPAND | wx.ALL, 5)
+        leftSizer.Add(self.staticText1, 0, )
+        leftSizer.Add(self.availableOperations, 0, wx.BOTTOM, 5)
+        leftSizer.Add(self.staticText2, 0, wx.TOP, 5)
+        leftSizer.Add(self.usedOperations, 1)
+        mainSizer.Add(leftSizer, 0, wx.EXPAND | wx.ALL, 5)
 
         rightSizer = self.rightSizer = wx.BoxSizer(wx.VERTICAL)
         rightTopSizer = self.rightTopSizer = wx.BoxSizer(wx.HORIZONTAL)
-        rightTopSizer.AddWindow(self.staticText3, 0, wx.ALIGN_CENTRE | wx.LEFT, 5)
-        rightTopSizer.AddWindow(self.moveDown, 0, wx.ALIGN_CENTRE | wx.LEFT, 3)
-        rightTopSizer.AddWindow(self.moveUp, 0, wx.ALIGN_CENTRE | wx.RIGHT, 25)
-        rightTopSizer.AddSpacer((-1, 1), 1)
-        rightTopSizer.AddWindow(self.staticText4, 0, wx.ALIGN_CENTRE | wx.RIGHT, 5)
-        rightTopSizer.AddWindow(self.applyName, 0, wx.ALIGN_CENTRE | wx.RIGHT, 3)
-        rightTopSizer.AddWindow(self.applyExtension, 0, wx.ALIGN_CENTRE | wx.RIGHT, 15)
-        rightTopSizer.AddSpacer((-1, 1), 5)
-        rightTopSizer.AddWindow(self.enableOperation, 0, wx.ALIGN_CENTRE | wx.RIGHT, 5)
-        rightTopSizer.AddWindow(self.resetOperationButton, 0, wx.ALIGN_CENTRE | wx.RIGHT, 10)
-        rightTopSizer.AddWindow(self.deleteOperations, 0, wx.ALIGN_CENTRE | wx.RIGHT, 5)
-        rightTopSizer.AddSpacer((-1, 1), 5)
-        rightSizer.AddSizer(rightTopSizer, 0, wx.TOP | wx.BOTTOM | wx.EXPAND, 3)
-        rightTopSizer.AddSpacer((1, 10), 0)
-        rightSizer.AddWindow(self.staticText5, 0, flag=wx.LEFT, border=20)
+        rightTopSizer.Add(self.staticText3, 0, wx.ALIGN_CENTRE | wx.LEFT, 5)
+        rightTopSizer.Add(self.moveDown, 0, wx.ALIGN_CENTRE | wx.LEFT, 3)
+        rightTopSizer.Add(self.moveUp, 0, wx.ALIGN_CENTRE | wx.RIGHT, 25)
+        rightTopSizer.Add((-1, 1), 1)
+        rightTopSizer.Add(self.staticText4, 0, wx.ALIGN_CENTRE | wx.RIGHT, 5)
+        rightTopSizer.Add(self.applyName, 0, wx.ALIGN_CENTRE | wx.RIGHT, 3)
+        rightTopSizer.Add(self.applyExtension, 0, wx.ALIGN_CENTRE | wx.RIGHT, 15)
+        rightTopSizer.Add((-1, 1), 5)
+        rightTopSizer.Add(self.enableOperation, 0, wx.ALIGN_CENTRE | wx.RIGHT, 5)
+        rightTopSizer.Add(self.resetOperationButton, 0, wx.ALIGN_CENTRE | wx.RIGHT, 10)
+        rightTopSizer.Add(self.deleteOperations, 0, wx.ALIGN_CENTRE | wx.RIGHT, 5)
+        rightTopSizer.Add((-1, 1), 5)
+        rightSizer.Add(rightTopSizer, 0, wx.TOP | wx.BOTTOM | wx.EXPAND, 3)
+        rightTopSizer.Add((1, 10), 0)
+        rightSizer.Add(self.staticText5, 0, flag=wx.LEFT, border=20)
 
-        mainSizer.AddSizer(rightSizer, 1, wx.EXPAND)
+        mainSizer.Add(rightSizer, 1, wx.EXPAND)
         self.SetSizerAndFit(mainSizer)
 
     def __init_menu(self, parent, n):

@@ -16,7 +16,7 @@ import sys
 
 import app
 import wx
-import wx.calendar
+import wx.adv
 import wx.lib.masked.timectrl
 
 [wxID_PANEL, wxID_PANELCAL, wxID_PANELDATESEPERATOR,
@@ -103,10 +103,10 @@ class Panel(wx.Panel):
                                        label=_(u"Time Settings:"), name=u'staticBox2', parent=self,
                                        style=0)
 
-        self.cal = wx.calendar.CalendarCtrl(date=wx.DateTime.Now(),
+        self.cal = wx.adv.CalendarCtrl(date=wx.DateTime.Now(),
                                             id=wxID_PANELCAL, name=u'cal', parent=self,
-                                            style=wx.calendar.CAL_SHOW_SURROUNDING_WEEKS | wx.calendar.CAL_MONDAY_FIRST | wx.calendar.CAL_SHOW_HOLIDAYS)
-        self.cal.Bind(wx.calendar.EVT_CALENDAR_SEL_CHANGED, self._test_date,
+                                            style=wx.adv.CAL_SHOW_SURROUNDING_WEEKS | wx.adv.CAL_MONDAY_FIRST | wx.adv.CAL_SHOW_HOLIDAYS)
+        self.cal.Bind(wx.adv.EVT_CALENDAR_SEL_CHANGED, self._test_date,
                       id=wxID_PANELCAL)
 
         self.date_format = wx.ComboBox(choices=[_(u"MM-DD-YYYY"),

@@ -38,13 +38,6 @@ import app
 
 syspath = sys.path[0]
 
-if not hasattr(sys, "frozen"):
-    try:
-        import wxversion
-    except ImportError:
-        print("\nwxPython required!\n")
-        sys.exit()
-
 
 def usage():
     """
@@ -154,13 +147,6 @@ def main(wx_version, cli_options):
             del os.environ['GTK2_RC_FILES']
         except (ValueError, KeyError):
             pass
-
-    if not hasattr(sys, "frozen"):
-        try:
-            wxversion.select(wx_version)
-        except wxversion.VersionError:
-            print("\nFailed to load wxPython version %s!\n" % wx_version)
-            sys.exit()
 
     import wx
     if 'unicode' not in wx.PlatformInfo:
