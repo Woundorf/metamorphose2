@@ -1,3 +1,11 @@
+Métamorphose 2 quick-ported to modern Python and wxPython. Tested to work (mostly) with Python 3.10.1 and wxPython 4.0.7.
+
+I started from another fork with several bugfixes. Errors have been discovered by trial and error and fixed as best as I know, but since I'm not a Python developer some fixes may not be good. Other errors may remain that I haven't discovered yet. Feel free to create an issue, a pull request or a new fork to solve them.
+
+What follows below is the Readme of the previous fork.
+
+---
+
 > Note: due the creator of Métamorphose [Ianaré Sévi](https://github.com/ianare) no longer having time to maintain it, this forked version has been created (big thanks to Ianaré for writing the software and maintaining it when he had time!). For Ubuntu users please see the new Launchpad PPA for a release that works on Xenial (and as of release 0.9.0~beta should work on newer series too):
 >
 >https://launchpad.net/~savoury1/+archive/ubuntu/metamorphose2
@@ -59,7 +67,8 @@ git submodule update --init
 
 Create or update the language files::
 ```
-messages/update_langs.sh
+cd messages
+make
 ```
 Launch the application::
 ```
