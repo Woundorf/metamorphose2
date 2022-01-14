@@ -14,6 +14,7 @@
 
 import sre_constants
 
+import app
 from .notebook import Notebook
 from .operation import Operation
 from . import replaceTools

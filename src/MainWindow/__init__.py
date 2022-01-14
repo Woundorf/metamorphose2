@@ -770,7 +770,7 @@ class MainWindow(wx.Frame):
                     unloadbles += "%s\n" % line[o]
 
             # set up for display
-            self.toRename = zip(original, renamed)
+            self.toRename = list(zip(original, renamed))
             self.picker.view.path.SetValue('')
             self.picker.clear_all()
 

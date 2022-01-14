@@ -14,7 +14,7 @@
 
 from __future__ import print_function
 import codecs
-import logging
+from . import logging
 import os
 
 import app

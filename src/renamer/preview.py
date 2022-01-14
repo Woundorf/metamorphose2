@@ -43,7 +43,7 @@ class Core():
         def getActive(x):
             if x.IsEnabled():
                 return x
-        return filter(getActive, main.renamer.operations)
+        return list(filter(getActive, main.renamer.operations))
 
     def addStatus(self, x):
         """Add renamed status."""
@@ -103,7 +103,7 @@ class Core():
                 break
 
         self.items_ren = map(self.addStatus, self.items_ren)
-        main.toRename = zip(main.items, self.items_ren)
+        main.toRename = list(zip(main.items, self.items_ren))
 
         progressDialog.destroy()
 
@@ -129,7 +129,7 @@ class Core():
         #------------ ERRORS: ---------------#
 
         # remove os-specific path separator
-        renamedItem = renamedItem.replace(unicode(os.sep), '')
+        renamedItem = renamedItem.replace(os.sep, '')
 
         # remove or flag invalid characters (depends on user settings)
         if self.prefs.get(u'useWinChars'):
@@ -256,7 +256,7 @@ class Core():
             return os.path.splitext(item)
 
         def join(newPath, renamedItem):
-            return unicode(os.path.join(newPath, renamedItem))
+            return os.path.join(newPath, renamedItem)
 
         # test for numbering panel
         hasNumbering = False
@@ -342,7 +342,7 @@ class Core():
         items_ren = map(self.addStatus, self.items_ren)
 
         # make new dict with original and renamed files:
-        main.toRename = zip(main.items, items_ren)
+        main.toRename = list(zip(main.items, items_ren))
         del items_ren
 
         main.menuFile.SaveLog.Enable(True)

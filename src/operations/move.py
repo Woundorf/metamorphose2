@@ -15,6 +15,7 @@
 import platform
 import sys
 
+import app
 from .operation import Operation
 from . import regExpr
 from . import search

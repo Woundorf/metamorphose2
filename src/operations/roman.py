@@ -61,7 +61,7 @@ def toRoman(n):
 #    """convert Roman numeral to integer"""
 #    if not s:
 #        raise InvalidRomanNumeralError, 'Input can not be blank'
-#    if not fromRomanTable.has_key(s):
+#    if not s in fromRomanTable:
 #        raise InvalidRomanNumeralError, 'Invalid Roman numeral: %s' % s
 #    return fromRomanTable[s]
 

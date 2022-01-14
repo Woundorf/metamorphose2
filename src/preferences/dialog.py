@@ -13,7 +13,7 @@
 # GNU General Public License for more details.
 
 from __future__ import print_function
-import logging
+from . import logging
 
 import app
 from . import automation
@@ -66,16 +66,16 @@ class Dialog(wx.Dialog):
     Preferences dialog.
     """
     def __init_mainsizer_items(self, parent):
-        parent.AddWindow(self.notebook, 1, border=5,
+        parent.Add(self.notebook, 1, border=5,
                          flag=wx.ALL | wx.EXPAND)
-        parent.AddSizer(self.buttons, 0, border=5, flag=wx.ALL | wx.EXPAND)
+        parent.Add(self.buttons, 0, border=5, flag=wx.ALL | wx.EXPAND)
 
     def __init_buttons_items(self, parent):
-        parent.AddSpacer((110, -1), 0, border=0, flag=0)
-        parent.AddWindow(self.apply, 0, border=25, flag=wx.RIGHT)
-        parent.AddWindow(self.ok, 0, border=108, flag=wx.RIGHT)
-        parent.AddSpacer((10, -1), 1, border=0, flag=0)
-        parent.AddWindow(self.close, 0, border=0, flag=0)
+        parent.Add((110, -1), 0, border=0, flag=0)
+        parent.Add(self.apply, 0, border=25, flag=wx.RIGHT)
+        parent.Add(self.ok, 0, border=108, flag=wx.RIGHT)
+        parent.Add((10, -1), 1, border=0, flag=0)
+        parent.Add(self.close, 0, border=0, flag=0)
 
     def __init_sizers(self):
         self.mainSizer = wx.BoxSizer(orient=wx.VERTICAL)
@@ -164,11 +164,11 @@ class Dialog(wx.Dialog):
                     or isinstance(child, wx.SpinCtrl):
                         child.SetValue(v)
                 elif isinstance(child, wx.ComboBox) or isinstance(child, wx.TextCtrl):
-                    child.SetValue(unicode(v))
+                    child.SetValue(v)
                 elif isinstance(child, wx.Choice):
                     child.SetSelection(v)
                 elif isinstance(child, wx.DirPickerCtrl) or isinstance(child, wx.FilePickerCtrl):
-                    child.SetPath(unicode(v))
+                    child.SetPath(v)
                 elif isinstance(child, wx.ColourPickerCtrl):
                     child.SetColour(v)
 

@@ -25,20 +25,20 @@ import wx
 class Dialog(wx.Dialog):
     def __init_boxsizer1(self, parent):
         parent.AddSpacer(5)
-        parent.AddWindow(self.staticText1, 0, border=4, flag=wx.ALL)
-        parent.AddWindow(self.staticText2, 0, border=4, flag=wx.ALL)
-        parent.AddWindow(self.staticText3, 0, border=4, flag=wx.ALL)
-        parent.AddWindow(self.value, 0, border=5, flag=wx.ALL | wx.EXPAND)
-        parent.AddSizer(self.boxSizer2, 0, border=10,
+        parent.Add(self.staticText1, 0, border=4, flag=wx.ALL)
+        parent.Add(self.staticText2, 0, border=4, flag=wx.ALL)
+        parent.Add(self.staticText3, 0, border=4, flag=wx.ALL)
+        parent.Add(self.value, 0, border=5, flag=wx.ALL | wx.EXPAND)
+        parent.Add(self.boxSizer2, 0, border=10,
                         flag=wx.ALIGN_CENTER_HORIZONTAL | wx.BOTTOM | wx.TOP | wx.EXPAND)
 
     def __init_boxsizer2(self, parent):
-        parent.AddWindow(self.backward, 0, border=5, flag=wx.LEFT)
+        parent.Add(self.backward, 0, border=5, flag=wx.LEFT)
         parent.AddStretchSpacer(1)
-        parent.AddWindow(self.button1, 0, border=8, flag=wx.RIGHT)
-        parent.AddWindow(self.button2, 0)
+        parent.Add(self.button1, 0, border=8, flag=wx.RIGHT)
+        parent.Add(self.button2, 0)
         parent.AddStretchSpacer(1)
-        parent.AddWindow(self.forward, 0, border=5, flag=wx.RIGHT)
+        parent.Add(self.forward, 0, border=5, flag=wx.RIGHT)
 
     def __init_sizers(self):
         self.boxSizer1 = wx.BoxSizer(orient=wx.VERTICAL)

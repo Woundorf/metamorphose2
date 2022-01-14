@@ -169,7 +169,7 @@ class OpPanel(Operation):
             #padding by inserting at position:
             else:
                 padSize = width - len(newName)
-                newName = newName[:position] + unicode(padChar * padSize) + \
+                newName = newName[:position] + str(padChar * padSize) + \
                     newName[position:]
             return newName
 

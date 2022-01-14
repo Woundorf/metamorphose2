@@ -20,6 +20,7 @@ Uses search panel.
 
 import sre_constants
 
+import app
 from . import accentStrip
 from .operation import Operation
 from . import search
@@ -156,7 +157,7 @@ class OpPanel(Operation):
         Taken from urllib standard python library.
         """
         res = s.split('%')
-        for i in xrange(1, len(res)):
+        for i in range(1, len(res)):
             item = res[i]
             try:
                 res[i] = _hextochr[item[:2]] + item[2:]
@@ -263,7 +264,7 @@ class OpPanel(Operation):
                 match = match.group()
             enc = self.encodingSelect.GetStringSelection()
             match = match.encode(enc, 'backslashreplace')
-            match = unicode(match, 'utf_8', 'replace')
+            match = str(match)
             return match
 
         # set possible modifications and selected operation:

@@ -202,7 +202,7 @@ class ListCtrl(wx.ListCtrl):
         if original[1]:
             # show preview if available
             if app.prefs.get('showPreviewIcons') and\
-                pickerList.thumbnails.has_key(original[0]):
+                original[0] in pickerList.thumbnails:
                     img = pickerList.thumbnails[original[0]]
             else:
                 img = 1

@@ -476,7 +476,7 @@ class Panel(wx.Panel):
         self.mainSizer.Layout()
 
     def __add_operation_to_list(self, pos, opName):
-        self.usedOperations.InsertItem(pos, unicode(pos + 1) + u": " + opName)
+        self.usedOperations.InsertItem(pos, str(pos + 1) + u": " + opName)
 
     def __set_operations_apply_menu(self, event):
         """

@@ -78,7 +78,7 @@ class Core():
                 return False
             else:
                 try:
-                    datetime = unicode(data[ref[selection]])
+                    datetime = str(data[ref[selection]])
                 except KeyError:
                     return False
                 else:

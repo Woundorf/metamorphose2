@@ -124,7 +124,7 @@ class Core():
         def exists(item):
             return os.path.exists(item)
         def join(a, b, c):
-            return unicode(os.path.join(a, b, c))
+            return os.path.join(a, b, c)
 
         warn = False
         if event != u'undo':
@@ -295,7 +295,7 @@ class Core():
                 main.picker.view.dirPicker.SetPath(commonPrefix)
 
             if not len(original) == 0:
-                main.toRename = zip(renamed, original)#reverse order from original rename!
+                main.toRename = list(zip(renamed, original))#reverse order from original rename!
                 main.currentItem = None
                 main.display_results()
                 main.rename_items(u'undo')
