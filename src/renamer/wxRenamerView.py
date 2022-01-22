@@ -107,6 +107,7 @@ class OperationDropTarget(wx.TextDropTarget):
         else:
             self.prnt.stack_operation(data, pos)
         self.__reset_highlight()
+        return False
 
 
 class UsedOperations(wx.ListCtrl):
@@ -464,7 +465,7 @@ class Panel(wx.Panel):
         Start dragging from used operations, for re-aranging
         """
         text = self.usedOperations.GetItemText(event.GetIndex())
-        tdo = wx.PyTextDataObject(text)
+        tdo = wx.TextDataObject(text)
         tds = wx.DropSource(self.usedOperations)
         tds.SetData(tdo)
         tds.DoDragDrop(True)
