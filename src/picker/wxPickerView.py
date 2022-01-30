@@ -225,7 +225,7 @@ class ItemList(wx.ListCtrl):
         # list folders first
         folders.sort(key=lambda x: x.lower())
         for i in range(len(folders)):
-            self.InsertImageStringItem(i, folders[i], 0)
+            self.InsertItem(i, folders[i], 0)
 
         # ... then files
         def _make_key(f): return (os.path.dirname(f), f.lower())
