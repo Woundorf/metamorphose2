@@ -318,7 +318,7 @@ class Panel(wx.Panel):
         SelectSizer.Add((-1, -1), 1, wx.EXPAND)
 
         mainSizer.Add(self.pathHelp, 0, wx.EXPAND | wx.LEFT | wx.TOP, 6)
-        mainSizer.Add(PathSizer, 0, wx.EXPAND | wx.ALIGN_CENTER)
+        mainSizer.Add(PathSizer, 0, wx.EXPAND)
         mainSizer.Add(SelectSizer, 0, wx.LEFT | wx.EXPAND, 6)
         mainSizer.Add(self.selectionArea, 1, wx.EXPAND | wx.TOP, 3)
 
