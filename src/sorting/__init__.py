@@ -70,17 +70,17 @@ class Core():
         try:
             file = open(path, 'rb')
         except:
-            return False
+            return ""
         else:
             # get the tags
             data = exifread.process_file(file, details=False)
             if not data:
-                return False
+                return ""
             else:
                 try:
                     datetime = str(data[ref[selection]])
                 except KeyError:
-                    return False
+                    return ""
                 else:
                     datetime = datetime.replace(' ', ':')
                     return datetime
