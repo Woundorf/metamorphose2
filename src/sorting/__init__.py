@@ -78,7 +78,10 @@ class Core():
                 return ""
             else:
                 try:
-                    datetime = str(data[ref[selection]])
+                    key = ref[selection]
+                    if not key in data and selection == 7:
+                        key = 'Image DateTimeOriginal'
+                    datetime = str(data[key])
                 except KeyError:
                     return ""
                 else:

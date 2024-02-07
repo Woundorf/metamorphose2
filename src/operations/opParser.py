@@ -230,9 +230,9 @@ class Parser():
         return str(y)
 
 #--- DATE AND TIME -----------------------------------------------------------#
-    def __get_exif_date(self, path, tag):
+    def __get_exif_date(self, path, tag, alternative_tag=None):
         ext = os.path.splitext(path)[1][1:].lower()
-        if re.match('tif|tiff|jpg|jpeg|jtif|thm', ext, re.IGNORECASE):
+        if re.match('tif|tiff|jpg|jpeg|jtif|thm|dng', ext, re.IGNORECASE):
             try:
                 file = open(path, 'rb')
             except IOError:
@@ -240,6 +240,8 @@ class Parser():
             else:
                 tags = exifread.process_file(file, details=False, stop_tag=tag)
                 # see if the tag exists
+                if not tag in tags:
+                    tag = alternative_tag
                 if tag in tags:
                     try:
                         itemDateTime = str(tags[tag])
@@ -288,7 +290,7 @@ class Parser():
                 try: itemDateTime = time.localtime(os.path.getatime(path))
                 except WindowsError: return ''
             elif itemTimeType == 3:
-                itemDateTime = self.__get_exif_date(path, 'EXIF DateTimeOriginal')
+                itemDateTime = self.__get_exif_date(path, 'EXIF DateTimeOriginal', 'Image DateTimeOriginal')
             elif itemTimeType == 4:
                 itemDateTime = self.__get_exif_date(path, 'Image DateTime')
 
